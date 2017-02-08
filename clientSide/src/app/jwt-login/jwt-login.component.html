@@ -1,0 +1,20 @@
+<div class="container">
+<form  (ngSubmit)="onSubmit()" action="POST">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" aria-describedby="userHelp" placeholder="Enter username"
+    required
+     [(ngModel)]="model.username" name="username">
+    <small id="userHelp" class="form-text text-muted">sadiq</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+    required
+     [(ngModel)]="model.password" name="password">
+    <small id="emailHelp" class="form-text text-muted">1234</small>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

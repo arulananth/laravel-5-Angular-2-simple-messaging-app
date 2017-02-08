@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="card card-inverse card-primary">
+                <div class="card-header"> <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group float-right">
+                        <button type="button" class="btn btn-secondary btn-xs dropdown-toggle"
+                        data-toggle="dropdown"> <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            
+                            <li class="divider dropdown-item"></li>
+                            <li class="dropdown-item"><a [routerLink]="['/logout']"><span class="glyphicon glyphicon-off"></span>
+
+                                Sign Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block card">
+                    <ul class="chat" *ngFor="let msg of msgs">
+                        
+                        <li class="right clearfix">
+
+                        <span class="chat-img float-right">
+
+                            <img src="http://placehold.it/50/FA6F57/fff&amp;text=..." alt="User Avatar" class="rounded-circle" />
+
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header"> <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>
+
+                                <time>{{msg.created_at | amTimeAgo}}</time></small>
+                                    <strong
+                                    class="float-right primary-font">{{msg.name}}</strong>
+                                </div>
+                                <p>{{msg.message}}</p>
+                            </div>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="card-footer">
+                <form  (ngSubmit)="onSubmit()" action="POST">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control form-control-sm"
+                        placeholder="Type your message here..." 
+                        required
+    					[(ngModel)]="model.message" name="message"/> <span class="input-group-btn">
+
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+
+                                Send</button>
+
+                        </span>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
